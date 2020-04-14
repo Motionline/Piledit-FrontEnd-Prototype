@@ -1,0 +1,23 @@
+.topSection {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 200px;
+  width: 100%;
+}
+.topSection div {
+  height: 100%;
+  width: 100%;
+}
+#componentsSection {
+  background-color: red;
+}
+#previewSection {
+  background: blue;
+}
+.underSection {
+  height: 200px;
+  background-color: yellow;
+  justify-content: center;
+  align-content: center;
+}
