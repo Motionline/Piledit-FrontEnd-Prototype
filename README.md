@@ -1,4 +1,4 @@
-# movie-edit-front-end
+# movie-edit-frontend-ts
 
 ## Project setup
 ```
