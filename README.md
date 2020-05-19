@@ -1,34 +1,24 @@
-# movie_editor
+# MovieEditor FrontEnd
 
-## Project setup
-```
-npm install
-```
+## 概要
+開発中のElectron製の動画編集ソフトウェアです。  
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 開発に関する規約
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Components
+- Atomic Designを採用する
+- 予め全てのページのデザインを制作し、Atomレベルからコンポーネントを開発する.
 
-### Run your unit tests
-```
-npm run test:unit
-```
+### CSS Framework
+- Vuetifyを採用する
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+### テスト
+- テスト駆動開発をある程度採用する
+- Unit Test (Spectron), E2E Testを併用する
 
-### Lints and fixes files
-```
-npm run lint
-```
+### TypeScriptの利用について
+- ある程度開発を進めた後、置き換えられる部分からTypeScriptに書き換える方式を取る.
+- Vuex周りなど、TypeScriptのサポートが発達中の分野についてはJSで記述することを許容する.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Lint
+- ESLint / JavaScript Standard を採用する
