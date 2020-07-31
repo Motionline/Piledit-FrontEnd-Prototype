@@ -11,23 +11,15 @@
       stroke-width="2"
       stroke="#ee7800"
       fill="#f39800"
-      transform="translate(1,1)"
+      transform="translate(1,1) scale(0.75, 0.75)"
     />
-    <text
-      x="32.99998664855957"
-      y="2"
-      text-anchor="middle"
-      transform="translate(96, 24)"
-      dominant-baseline="middle"
-    >
-      動画
-    </text>
+    <slot></slot>
     <path
       v-if="shadow"
       stroke-width="2"
       fill="#d3d3d8"
       :d="path"
-      transform="translate(1,49)"
+      transform="translate(1,37) scale(0.75, 0.75)"
     />
   </svg>
 </template>
@@ -39,7 +31,7 @@ export default {
   name: 'ElementBlockBase',
   data () {
     return {
-      path: 'm 0,4 A 4,4 0 0,1 4,0 H 12 c 2,0 3,1 4,2 l 4,4 c 1,1 2,2 4,2 h 12 c 2,0 3,-1 4,-2 l 4,-4 c 1,-1 2,-2 4,-2 H 163.99997329711914 a 4,4 0 0,1 4,4 v 40  a 4,4 0 0,1 -4,4 H 48   c -2,0 -3,1 -4,2 l -4,4 c -1,1 -2,2 -4,2 h -12 c -2,0 -3,-1 -4,-2 l -4,-4 c -1,-1 -2,-2 -4,-2 H 4 a 4,4 0 0,1 -4,-4 z',
+      path: 'm 0,4 A 4,4 0 0,1 4,0 H 12 c 2,0 3,1 4,2 l 4,4 c 1,1 2,2 4,2 h 12 c 2,0 3,-1 4,-2 l 4,-4 c 1,-1 2,-2 4,-2 H 370.99997329711914 a 4,4 0 0,1 4,4 v 40  a 4,4 0 0,1 -4,4 H 48   c -2,0 -3,1 -4,2 l -4,4 c -1,1 -2,2 -4,2 h -12 c -2,0 -3,-1 -4,-2 l -4,-4 c -1,-1 -2,-2 -4,-2 H 4 a 4,4 0 0,1 -4,-4 z',
       isDragging: false,
       position: {
         x: 0,
@@ -116,7 +108,7 @@ export default {
         const payloadChild = {
           position: {
             x: blockInSearch.position.x,
-            y: blockInSearch.position.y + 48
+            y: blockInSearch.position.y + 36
           },
           blockUniqueKey: blockInSearch.child
         }
@@ -128,7 +120,7 @@ export default {
       const isNearbyX1 = (coordinates1.x - coordinates2.x) <= 80
       const isNearbyX2 = (coordinates1.x - coordinates2.x) >= -160
       const isNearbyY1 = (coordinates2.y - coordinates1.y) <= 85
-      const isNearbyY2 = (coordinates2.y - coordinates1.y) >= 45
+      const isNearbyY2 = (coordinates2.y - coordinates1.y) >= 30
       return isNearbyX1 && isNearbyX2 && isNearbyY1 && isNearbyY2
     },
     mouseDown (event) {
@@ -174,7 +166,7 @@ export default {
         if (isNearby) {
           this.position.x = coordinateInSearch.x
           // TODO: 目視で48に設定してあるが、ブロックの高さに合わせて書くべき
-          this.position.y = coordinateInSearch.y + 48
+          this.position.y = coordinateInSearch.y + 36
           const payload = {
             childIdentify: this.blockUniqueKey,
             blockUniqueKey: key
