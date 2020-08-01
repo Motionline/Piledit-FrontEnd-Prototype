@@ -1,5 +1,10 @@
 <template>
-  <ElementBlockBase>
+  <ElementBlockBase
+    :blockUniqueKey="blockUniqueKey"
+    strokeColor="#ee7800"
+    fillColor="#f39800"
+    width="370"
+  >
     <text x="10" y="30" fill="white" font-size="14" class="notFocusSVGText">動画ファイル</text>
     <foreignObject
       width="100"
@@ -29,6 +34,12 @@ export default {
   name: 'LoadingVideoBlock',
   components: {
     ElementBlockBase
+  },
+  props: {
+    blockUniqueKey: {
+      type: String,
+      required: true
+    }
   },
   data () {
     return {

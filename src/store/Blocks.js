@@ -3,14 +3,15 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const blocksCounter = {
+const blocks = {
   namespaced: true,
   state: {
-    allBlocks: {}
+    allBlocks: {},
+    removedBlockUniqueKey: ''
   },
   getters: {
     allBlocks: (state) => state.allBlocks,
-    showShadow: (state) => state.allBlocks.showShadow
+    removedBlockUniqueKey: (state) => state.removedBlockUniqueKey
   },
   mutations: {
     addBlock (state, payload) {
@@ -19,6 +20,10 @@ const blocksCounter = {
         showShadow: payload.showShadow,
         child: payload.childIdentify
       }
+    },
+    removeBlock (state, payload) {
+      state.removedBlockUniqueKey = payload.blockUniqueKey
+      delete state.allBlocks[payload.blockUniqueKey]
     },
     updatePosition (state, payload) {
       state.allBlocks[payload.blockUniqueKey].position = payload.position
@@ -38,4 +43,4 @@ const blocksCounter = {
   }
 }
 
-export const Blocks = blocksCounter
+export const Blocks = blocks
