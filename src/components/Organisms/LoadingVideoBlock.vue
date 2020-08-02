@@ -1,11 +1,19 @@
 <template>
   <ElementBlockBase
     :blockUniqueKey="blockUniqueKey"
-    strokeColor="#ee7800"
-    fillColor="#f39800"
-    width="370"
+    :x="x"
+    :y="y"
+    :showShadow="showShadow"
+    :strokeColor="strokeColor"
+    :fillColor="fillColor"
+    :width="width"
+    @stopDragging="stopDragging($event)"
+    @updatePosition="updatePosition($event)"
+    @removeBlock="removeBlock($event)"
   >
-    <text x="10" y="30" fill="white" font-size="14" class="notFocusSVGText">動画ファイル</text>
+    <SVGText x="10" y="30">
+      動画ファイル
+    </SVGText>
     <foreignObject
       width="100"
       height="30"
@@ -22,28 +30,47 @@
         {{ getDisplayButtonText() }}
       </v-btn>
     </foreignObject>
-    <text x="205" y="30" fill="white" font-size="14" class="notFocusSVGText">を読み込む</text>
+    <SVGText x="205" y="30">
+      を読み込む
+    </SVGText>
   </ElementBlockBase>
 </template>
 
 <script>
-import ElementBlockBase from '@/components/Atoms/ElementBlockBase'
+import SVGText from '@/components/Atoms/SVGText'
+import ElementBlockBase from '@/components/Molecules/ElementBlockBase'
 const dialog = require('electron').remote.dialog
 const path = require('path')
 export default {
   name: 'LoadingVideoBlock',
   components: {
+    SVGText,
     ElementBlockBase
   },
   props: {
     blockUniqueKey: {
       type: String,
       required: true
+    },
+    x: {
+      type: Number,
+      required: true
+    },
+    y: {
+      type: Number,
+      required: true
+    },
+    showShadow: {
+      type: Boolean,
+      required: true
     }
   },
   data () {
     return {
-      selectFilePath: ''
+      selectFilePath: '',
+      strokeColor: '#ee7800',
+      fillColor: '#f39800',
+      width: '370'
     }
   },
   methods: {
@@ -63,21 +90,22 @@ export default {
       } else {
         return '開く'
       }
+    },
+    stopDragging (event) {
+      this.$emit('stopDragging', event)
+    },
+    updatePosition (event) {
+      this.$emit('updatePosition', event)
+    },
+    removeBlock (event) {
+      this.$emit('removeBlock', event)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.notFocusSVGText {
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-</style>
-
 <style lang="scss">
-.openDirectoryButton .v-btn__content {
-  position: unset !important;
-}
+  .openDirectoryButton .v-btn__content {
+    position: unset !important;
+  }
 </style>
