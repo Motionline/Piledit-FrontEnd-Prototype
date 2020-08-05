@@ -26,17 +26,32 @@
         <DragDebugBlock />
       </v-btn>
     </foreignObject>
+    <foreignObject height="75" width="340" y="100">
+      <v-btn
+        :ripple="false"
+        @click="addBlock('DefinitionComponentBlock')"
+        @dragend="dragEnd($event, 'DefinitionComponentBlock')"
+        draggable="true"
+        elevation="0"
+        class="dragBlock-btn"
+        text
+      >
+        <DragDefinitionComponentBlock />
+      </v-btn>
+    </foreignObject>
   </svg>
 </template>
 
 <script>
 import DragLoadingVideoBlock from '@/components/Organisms/DragLoadingVideoBlock'
 import DragDebugBlock from '@/components/Organisms/DragDebugBlock'
+import DragDefinitionComponentBlock from '@/components/Organisms/DragDefinitionComponentBlock'
 export default {
   name: 'BlocksList',
   components: {
     DragLoadingVideoBlock,
-    DragDebugBlock
+    DragDebugBlock,
+    DragDefinitionComponentBlock
   },
   methods: {
     addBlock (blockType) {
