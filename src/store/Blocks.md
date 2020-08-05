@@ -14,6 +14,9 @@ Blocks Moduleは、存在しているBlockに関しての機能を集約したVu
       "y": "Number"
     },
     "showShadow": "Boolean",
+    "topBlockUniqueKey": "String",
+    "parentBlockUniqueKey": "String",
+    "blockUniqueKey": "String",
     "childBlockUniqueKey": "String",
     "blockType": "String"
   }
