@@ -18,11 +18,13 @@
 <script>
 import LoadingVideoBlock from '@/components/Organisms/LoadingVideoBlock'
 import DebugBlock from '@/components/Organisms/DebugBlock'
+import DefinitionComponentBlock from '@/components/Organisms/DefinitionComponentBlock'
 export default {
   name: 'BlocksSandBox',
   components: {
     LoadingVideoBlock,
-    DebugBlock
+    DebugBlock,
+    DefinitionComponentBlock
   },
   props: {
     allBlocks: {
