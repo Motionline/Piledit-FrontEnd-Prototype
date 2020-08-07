@@ -6,6 +6,9 @@
     <v-tab to="/components_edit">
       コンポーネントエディタ
     </v-tab>
+    <v-tab to="/store">
+      ストア
+    </v-tab>
   </v-tabs>
 </template>
 

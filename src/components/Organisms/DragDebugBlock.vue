@@ -4,7 +4,7 @@
     :fillColor="fillColor"
     :width="width"
   >
-    <SVGText x="10" y="30">
+    <SVGText x="10" y="30" color="white">
       debug
     </SVGText>
   </DragElementBlockBase>

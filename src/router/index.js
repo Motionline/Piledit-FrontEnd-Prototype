@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ComponentsEdit from '../views/ComponentsEdit'
+import Store from '../views/Store'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/components_edit',
     name: 'ComponentsEdit',
     component: ComponentsEdit
+  },
+  {
+    path: '/store',
+    name: 'Store',
+    component: Store
   }
 ]
 

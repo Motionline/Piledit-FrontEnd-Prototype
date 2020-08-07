@@ -2,7 +2,7 @@
   <text
     :x="x"
     :y="y"
-    fill="white"
+    :fill="color"
     font-size="14"
     class="notFocusSVGText"
   >
@@ -21,6 +21,10 @@ export default {
     y: {
       type: String,
       required: true
+    },
+    color: {
+      type: String,
+      required: true
     }
   }
 }
@@ -31,5 +35,6 @@ export default {
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    pointer-events: none;
   }
 </style>

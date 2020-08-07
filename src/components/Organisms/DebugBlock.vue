@@ -11,7 +11,7 @@
     @updatePosition="updatePosition($event)"
     @removeBlock="removeBlock($event)"
   >
-    <SVGText x="10" y="30">
+    <SVGText x="10" y="30" color="white">
       {{ blockUniqueKey }} {{ allBlocks[blockUniqueKey].childBlockUniqueKey }}
     </SVGText>
   </ElementBlockBase>

@@ -4,7 +4,7 @@
     :fillColor="fillColor"
     :width="width"
   >
-    <SVGText x="10" y="30">
+    <SVGText x="10" y="30" color="white">
       動画ファイル
     </SVGText>
     <foreignObject
@@ -22,7 +22,7 @@
         動画
       </v-btn>
     </foreignObject>
-    <SVGText x="205" y="30">
+    <SVGText x="205" y="30" color="white">
       を読み込む
     </SVGText>
   </DragElementBlockBase>

@@ -11,7 +11,7 @@
     @updatePosition="updatePosition($event)"
     @removeBlock="removeBlock($event)"
   >
-    <SVGText x="10" y="30">
+    <SVGText x="10" y="30" color="white">
       動画ファイル
     </SVGText>
     <foreignObject
@@ -30,7 +30,7 @@
         {{ getDisplayButtonText() }}
       </v-btn>
     </foreignObject>
-    <SVGText x="205" y="30">
+    <SVGText x="205" y="30" color="white">
       を読み込む
     </SVGText>
   </ElementBlockBase>

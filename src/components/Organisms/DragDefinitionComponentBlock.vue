@@ -4,7 +4,7 @@
     :fillColor="fillColor"
     :width="width"
   >
-    <SVGText x="10" y="45">
+    <SVGText x="10" y="45" color="white">
       コンポーネントを定義
     </SVGText>
   </DragEventBlockBase>

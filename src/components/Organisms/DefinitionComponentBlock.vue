@@ -11,7 +11,7 @@
     @updatePosition="updatePosition($event)"
     @removeBlock="removeBlock($event)"
   >
-    <SVGText x="10" y="45">
+    <SVGText x="10" y="45" color="white">
       コンポーネント定義
     </SVGText>
   </EventBlockBase>
