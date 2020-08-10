@@ -1,8 +1,10 @@
 <template>
   <div id="Home">
     <ApplicationTab />
-    <BlocksSandBox :allBlocks="allBlocks" />
-    <BlocksList />
+    <svg height="1500" width="1500">
+      <BlocksSandBox :allBlocks="allBlocks" />
+      <BlocksList />
+    </svg>
     <v-btn @click="csl">check</v-btn>
   </div>
 </template>

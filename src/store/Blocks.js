@@ -25,9 +25,10 @@ const blocks = {
     updateChildBlock (state, { payload }) {
       let blockInSearch = state.allBlocks[payload.blockUniqueKey]
       while (blockInSearch.childBlockUniqueKey !== '') {
-        state.allBlocks[blockInSearch.childBlockUniqueKey].position = {
+        const child = state.allBlocks[blockInSearch.childBlockUniqueKey]
+        child.position = {
           x: blockInSearch.position.x,
-          y: blockInSearch.position.y + 37
+          y: blockInSearch.position.y + calcHeight(blockInSearch.blockType)
         }
         blockInSearch = state.allBlocks[blockInSearch.childBlockUniqueKey]
       }
@@ -129,7 +130,7 @@ const blocks = {
         if (isNearby) {
           position.x = positionInSearch.x
           // TODO: 目視で48に設定してあるが、ブロックの高さに合わせて書くべき
-          position.y = positionInSearch.y + 37
+          position.y = positionInSearch.y + calcHeight(blockInSearch.blockType)
           commit('updateBlock', {
             payload: {
               blockUniqueKey: blockArg.blockUniqueKey,
@@ -208,6 +209,14 @@ const blocks = {
         }
       }
     }
+  }
+}
+
+const calcHeight = (blockName) => {
+  if (blockName === 'DefinitionComponentBlock') {
+    return 51
+  } else {
+    return 37
   }
 }
 

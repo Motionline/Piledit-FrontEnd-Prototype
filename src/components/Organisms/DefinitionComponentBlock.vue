@@ -4,6 +4,7 @@
     :x="x"
     :y="y"
     :showShadow="showShadow"
+    :shadowPath="shadowPath(width)"
     :strokeColor="strokeColor"
     :fillColor="fillColor"
     :width="width"
@@ -14,6 +15,14 @@
     <SVGText x="10" y="45" color="white">
       コンポーネント定義
     </SVGText>
+    <foreignObject
+      width="100"
+      height="30"
+      x="100"
+      y="5"
+    >
+      <v-text-field class="componentNameTextField">text</v-text-field>
+    </foreignObject>
   </EventBlockBase>
 </template>
 
@@ -42,6 +51,9 @@ export default {
     showShadow: {
       type: Boolean,
       required: true
+    },
+    shadowPath: {
+      type: Function
     }
   },
   data () {
@@ -49,7 +61,7 @@ export default {
       selectFilePath: '',
       strokeColor: '#e9bc00',
       fillColor: '#fcc800',
-      width: '250'
+      width: '300'
     }
   },
   methods: {
@@ -67,7 +79,8 @@ export default {
 </script>
 
 <style lang="scss">
-  .openDirectoryButton .v-btn__content {
+  .componentNameTextField .v-btn__content {
     position: unset !important;
+    z-index: 1000000 !important;
   }
 </style>

@@ -1,10 +1,9 @@
 <template>
-  <svg height="400" width="1200" id="blockComponentsSandBox">
-    <foreignObject height="45" width="340">
+  <svg height="1000" width="1200" id="blockComponentsSandBox">
+    <foreignObject height="45" width="340" y="500">
       <v-btn
         :ripple="false"
         @click="addBlock('LoadingVideoBlock')"
-        @dragend="dragEnd($event, 'LoadingVideoBlock')"
         draggable="true"
         elevation="0"
         class="dragBlock-btn"
@@ -13,7 +12,7 @@
         <DragLoadingVideoBlock />
       </v-btn>
     </foreignObject>
-    <foreignObject height="45" width="340" y="50">
+    <foreignObject height="45" width="340" y="550">
       <v-btn
         :ripple="false"
         @click="addBlock('DebugBlock')"
@@ -26,7 +25,7 @@
         <DragDebugBlock />
       </v-btn>
     </foreignObject>
-    <foreignObject height="75" width="340" y="100">
+    <foreignObject height="75" width="340" y="600">
       <v-btn
         :ripple="false"
         @click="addBlock('DefinitionComponentBlock')"
@@ -64,15 +63,24 @@ export default {
       })
     },
     dragEnd (event, blockType) {
-      if (event.clientY <= 400) {
-        this.$store.dispatch('Blocks/add', {
-          position: {
-            x: event.clientX - 250,
-            y: event.clientY
-          },
-          blockType
-        })
-      }
+      // console.log('dragEnd')
+      // if (event.clientY <= 400) {
+      //   this.$store.dispatch('Blocks/add', {
+      //     position: {
+      //       x: event.clientX - 250,
+      //       y: event.clientY
+      //     },
+      //     blockType
+      //   })
+      // }
+      this.$store.dispatch('Blocks/add', {
+        position: {
+          x: event.clientX,
+          y: event.clientY
+        },
+        blockType
+      })
+      event.preventDefault()
     }
   }
 }

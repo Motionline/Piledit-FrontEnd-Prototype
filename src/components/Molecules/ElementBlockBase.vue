@@ -127,15 +127,27 @@ export default {
       return { x, y }
     },
     popupContextMenu (event) {
+      const menu = this.buildContextMenu()
+      menu.popup(remote.getCurrentWindow())
+      event.preventDefault()
+    },
+    buildContextMenu () {
       const menu = new Menu()
+      menu.append(new MenuItem({ label: 'カット', accelerator: 'CmdOrCtrl+X' }))
+      menu.append(new MenuItem({ label: 'コピー', accelerator: 'CmdOrCtrl+C' }))
+      menu.append(new MenuItem({ label: 'ペースト', accelerator: 'CmdOrCtrl+V' }))
       menu.append(
         new MenuItem({
-          label: '削除する',
+          label: '削除',
+          accelerator: 'Backspace',
           click: this.calledByRemoveMenuItem
         })
       )
-      menu.popup(remote.getCurrentWindow())
-      event.preventDefault()
+      menu.append(new MenuItem({ type: 'separator' }))
+      menu.append(new MenuItem({ label: '詳細メニューを開く', accelerator: 'CmdOrCtrl+M' }))
+      menu.append(new MenuItem({ label: '非表示', accelerator: 'CmdOrCtrl+,' }))
+      menu.append(new MenuItem({ label: '親ブロックとの接続を切る', enabled: false }))
+      return menu
     },
     calledByRemoveMenuItem () {
       // ブロックを削除 -> Emit

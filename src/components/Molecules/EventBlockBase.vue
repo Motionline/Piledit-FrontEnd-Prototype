@@ -19,7 +19,7 @@
       v-if="showShadow"
       stroke-width="2"
       fill="#d3d3d8"
-      :d="path"
+      :d="shadowPath"
       transform="translate(1,52) scale(0.75, 0.75)"
     />
   </svg>
@@ -51,6 +51,10 @@ export default {
     showShadow: {
       type: Boolean,
       required: true
+    },
+    // 影path
+    shadowPath: {
+      type: String
     },
     // pathの輪郭・塗り潰し色
     strokeColor: {
